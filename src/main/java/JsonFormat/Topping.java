@@ -1,13 +1,14 @@
-package json;
+package JsonFormat;
 
 public class Topping {
     private String id;
     private String type;
 
-    public Topping(String id, String type){
+    public Topping(String id, String type) {
         this.id = id;
         this.type = type;
     }
+
     public String getId() {
         return id;
     }

@@ -23,6 +23,7 @@ public class CsvToJson {
             }
             keyValueArrayList.add(new HashMap<>(keyValueMap));
         }
+        rowReader.close();
         return new ObjectMapper().writeValueAsString(keyValueArrayList);
     }
 
@@ -37,7 +38,7 @@ public class CsvToJson {
             printWriter.close();
             System.out.println("JSON File Created!");
         } else {
-            throw new FileAlreadyExistsException("JSON File Already Exists!");
+            System.out.println("JSON File Already Exists!");
         }
     }
 }
