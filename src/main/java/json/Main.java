@@ -1,155 +1,83 @@
 package json;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.ArrayList;
+
 import com.google.gson.Gson;
 
+
 public class Main {
-    public static void main(String[] args){
-        Item item1 = new Item("0001","donut","Cake",0.55);
-        Item item2 = new Item("0002","donut","Raised",0.55);
-        Item item3 = new Item("0003","donut","Old Fashioned",0.55);
+    public static void main(String[] args) {
+        Donut donutCake = new Donut("0001", "donut", "Cake", 0.55);
+        Donut donutRaised = new Donut("0002", "donut", "Raised", 0.55);
+        Donut donutOldFashioned = new Donut("0003", "donut", "Old Fashioned", 0.55);
+        ArrayList<Donut> donutList = new ArrayList<>();
 
-        ArrayList<Item> ItemList = new ArrayList<>();
+        // Donut Cake Batters and Topping values
+        ArrayList<Batter> battersDonutCake = new ArrayList<>();
+        battersDonutCake.add(new Batter("1001", "Regular"));
+        battersDonutCake.add(new Batter("1002", "Chocolate"));
+        battersDonutCake.add(new Batter("1003", "Blueberry"));
+        battersDonutCake.add(new Batter("1004", "Devil's Food"));
 
-        // Item 1 Batters and Topping values
-        ArrayList<HashMap<String,String>> item1_batter = new ArrayList<>();
-        item1_batter.add(new HashMap<String,String>(){{
-            put("id","1001");
-            put("type","Regular");
-        }});
+        HashMap<String, ArrayList<Batter>> battersMapDonutCake = new HashMap<>();
+        battersMapDonutCake.put("batter", battersDonutCake);
 
-        item1_batter.add(new HashMap<String,String>(){{
-            put("id","1002");
-            put("type","Chocolate");
-        }});
+        ArrayList<Topping> toppingsDonutCake = new ArrayList<>();
+        toppingsDonutCake.add(new Topping("5001", "None"));
+        toppingsDonutCake.add(new Topping("5002", "Glazed"));
+        toppingsDonutCake.add(new Topping("5005", "Sugar"));
+        toppingsDonutCake.add(new Topping("5007", "Powdered Sugar"));
+        toppingsDonutCake.add(new Topping("5006", "Chocolate with Sprinkles"));
+        toppingsDonutCake.add(new Topping("5003", "Chocolate"));
+        toppingsDonutCake.add(new Topping("5004", "Maple"));
 
-        item1_batter.add(new HashMap<String,String>(){{
-            put("id","1003");
-            put("type","Blueberry");
-        }});
-        item1_batter.add(new HashMap<String,String>(){{
-            put("id","1004");
-            put("type","Devil's Food");
-        }});
-        HashMap<String,ArrayList<HashMap<String,String>>> item1_batters = new HashMap<>();
-        item1_batters.put("batter",item1_batter);
 
-        ArrayList<HashMap<String, String>> item1_toppings = new ArrayList<>();
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5001");
-            put("type", "None");
-        }});
+        // Donut Raised Batters and Topping values
+        ArrayList<Batter> battersDonutRaised = new ArrayList<>();
+        battersDonutRaised.add(new Batter("1001", "Regular"));
 
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5002");
-            put("type", "Glazed");
-        }});
+        HashMap<String, ArrayList<Batter>> battersmapDonutRaised = new HashMap<>();
+        battersmapDonutRaised.put("batter", battersDonutRaised);
 
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5005");
-            put("type", "Sugar");
-        }});
+        ArrayList<Topping> toppingsDonutRaised = new ArrayList<>();
+        toppingsDonutRaised.add(new Topping("5001", "None"));
+        toppingsDonutRaised.add(new Topping("5002", "Glazed"));
+        toppingsDonutRaised.add(new Topping("5005", "Sugar"));
+        toppingsDonutRaised.add(new Topping("5003", "Chocolate"));
+        toppingsDonutRaised.add(new Topping("5004", "Maple"));
 
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5007");
-            put("type", "Powdered Sugar");
-        }});
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5006");
-            put("type", "Chocolate with Sprinkles");
-        }});
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5003");
-            put("type", "Chocolate");
-        }});
-        item1_toppings.add(new HashMap<String, String>() {{
-            put("id", "5004");
-            put("type", "Maple");
-        }});
+        // Donut Old Fashioned Batters and Topping values
+        ArrayList<Batter> battersDonutOldFashioned = new ArrayList<>();
+        battersDonutOldFashioned.add(new Batter("1001", "Regular"));
+        battersDonutOldFashioned.add(new Batter("1002", "Chocolate"));
 
-        // ITEM 2 Batters and Topping
-        ArrayList<HashMap<String,String>> item2_batter = new ArrayList<>();
-        item2_batter.add(new HashMap<String,String>(){{
-            put("id","1001");
-            put("type","Regular");
-        }});
-        HashMap<String,ArrayList<HashMap<String,String>>> item2_batters = new HashMap<>();
-        item2_batters.put("batter",item2_batter);
+        HashMap<String, ArrayList<Batter>> battersmapDonutOldFashioned = new HashMap<>();
+        battersmapDonutOldFashioned.put("batter", battersDonutOldFashioned);
 
-        ArrayList<HashMap<String, String>> item2_toppings = new ArrayList<>();
-        item2_toppings.add(new HashMap<String, String>() {{
-            put("id", "5001");
-            put("type", "None");
-        }});
+        ArrayList<Topping> toppingsDonutOldFashioned = new ArrayList<>();
+        toppingsDonutOldFashioned.add(new Topping("5001", "None"));
+        toppingsDonutOldFashioned.add(new Topping("5002", "Glazed"));
+        toppingsDonutOldFashioned.add(new Topping("5003", "Chocolate"));
+        toppingsDonutOldFashioned.add(new Topping("5004", "Maple"));
 
-        item2_toppings.add(new HashMap<String, String>() {{
-            put("id", "5002");
-            put("type", "Glazed");
-        }});
+        //Setters
+        donutCake.setBatter(battersMapDonutCake);
+        donutCake.setTopping(toppingsDonutCake);
+        donutRaised.setBatter(battersmapDonutRaised);
+        donutRaised.setTopping(toppingsDonutRaised);
+        donutOldFashioned.setBatter(battersmapDonutOldFashioned);
+        donutOldFashioned.setTopping(toppingsDonutOldFashioned);
 
-        item2_toppings.add(new HashMap<String, String>() {{
-            put("id", "5005");
-            put("type", "Sugar");
-        }});
 
-        item2_toppings.add(new HashMap<String, String>() {{
-            put("id", "5003");
-            put("type", "Chocolate");
-        }});
-        item2_toppings.add(new HashMap<String, String>() {{
-            put("id", "5004");
-            put("type", "Maple");
-        }});
-
-        // ITEM 3 Batters and Topping
-        ArrayList<HashMap<String,String>> item3_batter = new ArrayList<>();
-        item3_batter.add(new HashMap<String,String>(){{
-            put("id","1001");
-            put("type","Regular");
-        }});
-        item3_batter.add(new HashMap<String,String>(){{
-            put("id","1002");
-            put("type","Chocolate");
-        }});
-        HashMap<String,ArrayList<HashMap<String,String>>> item3_batters = new HashMap<>();
-        item3_batters.put("batter",item3_batter);
-
-        ArrayList<HashMap<String, String>> item3_toppings = new ArrayList<>();
-        item3_toppings.add(new HashMap<String, String>() {{
-            put("id", "5001");
-            put("type", "None");
-        }});
-
-        item3_toppings.add(new HashMap<String, String>() {{
-            put("id", "5002");
-            put("type", "Glazed");
-        }});
-
-        item3_toppings.add(new HashMap<String, String>() {{
-            put("id", "5003");
-            put("type", "Chocolate");
-        }});
-
-        item3_toppings.add(new HashMap<String, String>() {{
-            put("id", "5004");
-            put("type", "Maple");
-        }});
-
-        item1.setTopping(item1_toppings);
-        item1.setBatter(item1_batters);
-        item2.setTopping(item2_toppings);
-        item2.setBatter(item2_batters);
-        item3.setTopping(item3_toppings);
-        item3.setBatter(item3_batters);
-
-        ItemList.add(item1);
-        ItemList.add(item2);
-        ItemList.add(item3);
+        donutList.add(donutCake);
+        donutList.add(donutRaised);
+        donutList.add(donutOldFashioned);
 
         // Converting into JSON
         Gson gson = new Gson();
-        String JsonFormat = gson.toJson(ItemList);
+        String JsonFormat = gson.toJson(donutList);
 
         System.out.println(JsonFormat);
 
