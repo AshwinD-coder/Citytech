@@ -13,8 +13,8 @@
 	 2. ***Asynchronous communication (Non-Blocking)***:
 	 The microservice emitting a call is able to carrying processing whether or not the call is received.
 	 There are two types of  asynchronous communication:
-		1.Single Receiver message based communication (one to one queue model)
-		2.Multiple Receiver message based communication (one to many topic model)
+			1.Single Receiver message based communication (one to one queue model)
+			2.Multiple Receiver message based communication (one to many topic model)
 	 
 	 -**Request Response**: 
 		 In asynchronous communication using a request response communication, a service requests data to another service but does not wait for the response. A service requesting data can continue its operation even if it does not receive a response. It is achieved using a asynchronous protocol called AMQP.
@@ -24,4 +24,4 @@
 		 A upstream service publishes an event to a particular topic into a message system then the downstream services subscribing the upstream service uses the event. The advantage of this communication is that the system becomes hugely decoupled. The downside is that this system communication is complex to manage.
 
 	 -**Shared Databases** : 
-	    Shared Databases communication must follow constraint of one service to read the data from the database and another service to write into the database. When services perform both read/write operations in database , the implementation of shared database communication is not useful. This type of communication is used for data leak use cases where many services are writing into a database and another service reads data from that database. 
+		 Shared Databases communication must follow constraint of one service to read the data from the database and another service to write into the database. When services perform both read/write operations in database , the implementation of shared database communication is not useful. This type of communication is used for data leak use cases where many services are writing into a database and another service reads data from that database. 
