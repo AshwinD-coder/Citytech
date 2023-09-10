@@ -1,7 +1,6 @@
 - Types of microservices communication:
 	1. Synchronous communication (Blocking)
 	2. Asynchronous communication (Non-Blocking)
-
 	 1. ***Synchronous communication (Blocking)***:
 		 A microservice makes a call to another microservice and blocks operation, while waiting for the response. This communication can be achieved by using a REQUEST RESPONSE communication that can be implemented with the help REST, GraphQL, gRPC over HTTP.
 	 
@@ -11,9 +10,7 @@
 	 
 		 **Disadvantages**:
 		 - Time complexity can be high if there are multiple services that rely on REQUEST RESPONSE.
-
-
-	2. ***Asynchronous communication (Non-Blocking)***:
+	 2. ***Asynchronous communication (Non-Blocking)***:
 	 The microservice emitting a call is able to carrying processing whether or not the call is received.
 	 There are two types of  asynchronous communication:
 		1.Single Receiver message based communication (one to one queue model)
