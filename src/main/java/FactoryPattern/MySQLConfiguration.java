@@ -42,7 +42,7 @@ public class MySQLConfiguration implements DatabaseConfigurationImp {
     }
 
     @Override
-    public Connection connectDatabase()  {
+    public Connection connectDatabase() {
         try {
             Connection connection = DriverManager.getConnection(mysqlUrl, mysqlUsername, mysqlPassword);
             System.out.println("Connection established in MySQL");

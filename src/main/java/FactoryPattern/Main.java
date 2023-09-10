@@ -5,13 +5,13 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
-    public static void selectDatabase(String database) throws SQLException {
-        if(database.equalsIgnoreCase("mysql")){
+    public static void connectFetchDatabase(String database) throws SQLException {
+        if (database.equalsIgnoreCase("mysql")) {
             DatabaseConfigurationImp mysqlConnection = new MySQLConfiguration(
                     "jdbc:mysql://localhost:3306/contact",
                     "root",
                     "");
-            Connection  connection = mysqlConnection.connectDatabase();
+            Connection connection = mysqlConnection.connectDatabase();
             mysqlConnection.fetchData(connection);
         } else if (database.equalsIgnoreCase("postgresql")) {
             DatabaseConfigurationImp postgresqlConnection = new PostgreSQLConfiguration(
@@ -19,10 +19,9 @@ public class Main {
                     "postgres",
                     "admin"
             );
-           Connection connection =  postgresqlConnection.connectDatabase();
-           postgresqlConnection.fetchData(connection);
-        }
-        else {
+            Connection connection = postgresqlConnection.connectDatabase();
+            postgresqlConnection.fetchData(connection);
+        } else {
             System.out.println("Enter valid database.");
         }
     }
@@ -32,6 +31,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Select (postgresql/mysql) :");
         database = scanner.nextLine();
-        selectDatabase(database);
+        connectFetchDatabase(database);
     }
 }

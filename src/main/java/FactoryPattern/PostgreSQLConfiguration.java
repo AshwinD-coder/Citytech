@@ -4,8 +4,8 @@ import java.sql.*;
 
 public class PostgreSQLConfiguration implements DatabaseConfigurationImp {
     String postgresqlUrl;
-    String postgresqlUsername ;
-    String postgresqlPassword ;
+    String postgresqlUsername;
+    String postgresqlPassword;
 
 
     public PostgreSQLConfiguration(String postgresqlUrl, String postgresqlUsername, String postgresqlPassword) {
@@ -51,11 +51,9 @@ public class PostgreSQLConfiguration implements DatabaseConfigurationImp {
                 );
 
             }
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
-        }
-        finally {
+        } finally {
             connection.close();
             System.out.println("Connection closed!");
         }
