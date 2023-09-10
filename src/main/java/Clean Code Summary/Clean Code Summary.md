@@ -20,8 +20,8 @@
 7. Class Names must be noun or noun phrases not a verb like Customer, WikiPage, Account.
 8. Method Names must be verb or verb phrase like postPayment, deletePage.
 9. Accessor , mutator, predicate methods name should use prefixes like get, set, is .
-10. **Don't be Cute** : Avoid sense of humor names, slangs, culture joke names.
-11. **Pick One Word per Concept** : Choose one name concept among different similar concepts . Example : [Fetch, Retrieve, Get] , [Manager, Controller, Driver]
+10. **Don't be Cute** : Avoid sense of humor names, slang's, culture joke names.
+11. **Pick One Word per Concept** : Choose one name concept among many similar concepts . Example : [Fetch, Retrieve, Get] , [Manager, Controller, Driver]
 12. **Don't Pun**: Avoid using same names for  semantically different concepts.
 13. Use Solution Domain Names and Problem Domain Names.
 14. Add meaningful context using prefixes. Note : Add no more context than necessary(Short and simple is better than long ones).
