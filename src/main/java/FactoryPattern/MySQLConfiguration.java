@@ -17,12 +17,13 @@ public class MySQLConfiguration implements DatabaseConfigurationImp {
 
     @Override
     public void fetchData(Connection connection) throws SQLException {
+        ResultSet resultSet = null;
         try {
             Statement statement = connection.createStatement();
             String sql = """
                     SELECT * FROM details
                     """;
-            ResultSet resultSet = statement.executeQuery(sql);
+            resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
                 int id = resultSet.getInt(1);
                 String name = resultSet.getString(2);
@@ -30,7 +31,8 @@ public class MySQLConfiguration implements DatabaseConfigurationImp {
                 System.out.println(
                         "Id:" + id + "\t|| " + "Name:" + name + "\t|| " + "Phone Number:" + phoneNumber
                 );
-
+            resultSet.close();
+            statement.close();
             }
         } catch (SQLException e) {
             throw new MySQLQueryInterruptedException("Could not fetch data");
